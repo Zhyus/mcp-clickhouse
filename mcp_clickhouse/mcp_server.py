@@ -53,7 +53,7 @@ def list_tables(database: str):
     query = f"SHOW TABLES FROM {quote_identifier(database)}"
 #     if like:
 #         query += f" LIKE {format_query_value(like)}"
-    query += f" LIKE {format_query_value(app_us_%')}"
+    query += f" LIKE {format_query_value('app_us_%')}"
     result = client.command(query)
 
     # Get all table comments in one query
