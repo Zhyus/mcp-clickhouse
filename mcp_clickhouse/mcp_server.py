@@ -10,7 +10,7 @@ from mcp.server.fastmcp import FastMCP
 
 from mcp_clickhouse.mcp_env import get_config
 
-MCP_SERVER_NAME = "mcp-clickhouse"
+MCP_SERVER_NAME = "mcp-clickhouse-kalo"
 
 # Configure logging
 logging.basicConfig(
@@ -20,7 +20,7 @@ logger = logging.getLogger(MCP_SERVER_NAME)
 
 QUERY_EXECUTOR = concurrent.futures.ThreadPoolExecutor(max_workers=10)
 atexit.register(lambda: QUERY_EXECUTOR.shutdown(wait=True))
-SELECT_QUERY_TIMEOUT_SECS = 30
+SELECT_QUERY_TIMEOUT_SECS = 60
 
 load_dotenv()
 
@@ -51,8 +51,6 @@ def list_tables(database: str):
     logger.info(f"Listing tables in database '{database}'")
     client = create_clickhouse_client()
     query = f"SHOW TABLES FROM {quote_identifier(database)}"
-#     if like:
-#         query += f" LIKE {format_query_value(like)}"
     query += f" LIKE {format_query_value('app_us_%')}"
     result = client.command(query)
 

@@ -209,7 +209,7 @@ cli = [
 ]
 
 [[package]]
-name = "mcp-clickhouse"
+name = "mcp-clickhouse-kalo"
 version = "0.1.6"
 source = { editable = "." }
 dependencies = [

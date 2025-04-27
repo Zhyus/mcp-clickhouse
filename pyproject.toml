@@ -1,5 +1,5 @@
 [project]
-name = "mcp-clickhouse"
+name = "mcp-clickhouse-kalo"
 version = "0.1.7"
 description = "An MCP server for ClickHouse."
 readme = "README.md"
@@ -15,10 +15,10 @@ dependencies = [
 ]
 
 [project.scripts]
-mcp-clickhouse = "mcp_clickhouse.main:main"
+mcp-clickhouse-kalo = "mcp_clickhouse.main:main"
 
 [project.urls]
-Home = "https://github.com/ClickHouse/mcp-clickhouse"
+Home = "https://github.com/Zhyus/mcp-clickhouse"
 
 [project.optional-dependencies]
 dev = [
