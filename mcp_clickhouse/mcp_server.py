@@ -48,12 +48,12 @@ def list_databases():
 def list_tables(database: str):
     """List available ClickHouse tables in a database, including schema, comment,
     row count, and column count."""
-    logger.info(f"Listing tables in database '{database}'")
+    logger.info(f"Listing custom tables in database '{database}'")
     client = create_clickhouse_client()
     query = f"SHOW TABLES FROM {quote_identifier(database)}"
     query += f" LIKE {format_query_value('app_us_%')}"
     result = client.command(query)
-
+    logger.info(f"Listing custom tables result '{result}'")
     # Get all table comments in one query
     table_comments_query = (
         f"SELECT name, comment FROM system.tables WHERE database = {format_query_value(database)}"
