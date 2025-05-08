@@ -45,14 +45,15 @@ def list_databases():
 
 
 @mcp.tool()
-def list_tables(database: str):
+def list_tables():
     """List available ClickHouse tables in a database, including schema, comment,
     row count, and column count."""
+    database = 'kalo_data_online'
     logger.info(f"Listing custom tables in database '{database}'")
     client = create_clickhouse_client()
 #     query = f"SHOW TABLES FROM {quote_identifier(database)}"
 #     query += f" LIKE {format_query_value('app_us_%')}"
-    hardcoded_tables = ['app_us_creator_info','app_us_live_info','app_us_seller_info','app_us_product_info','app_us_product_sale_allocation','app_us_global_new_opportunity_category','app_us_video_info']
+    hardcoded_tables = ['app_us_creator_info','app_us_live_info_v2','app_us_seller_info','app_us_product_info','app_us_product_sale_allocation','app_global_opportunity_category','app_us_video_info_v2']
     #result = client.command(query)
     result = hardcoded_tables
     logger.info(f"Listing custom tables result '{result}'")
