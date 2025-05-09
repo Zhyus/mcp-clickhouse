@@ -34,14 +34,14 @@ deps = [
 mcp = FastMCP(MCP_SERVER_NAME, dependencies=deps)
 
 
-@mcp.tool()
-def list_databases():
-    """List available ClickHouse databases"""
-    logger.info("Listing all databases")
-    client = create_clickhouse_client()
-    result = client.command("SHOW DATABASES")
-    logger.info(f"Found {len(result) if isinstance(result, list) else 1} databases")
-    return result
+# @mcp.tool()
+# # def list_databases():
+# #     """List available ClickHouse databases"""
+# #     logger.info("Listing all databases")
+# #     client = create_clickhouse_client()
+# #     result = client.command("SHOW DATABASES")
+# #     logger.info(f"Found {len(result) if isinstance(result, list) else 1} databases")
+# #     return result
 
 
 @mcp.tool()
